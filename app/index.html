@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admissions CRM</title>
+<!-- Home-screen icon + name for the Admissions CRM (an Apps Script web app
+     can't set these itself). Opened from the home screen (?launch=1) it goes
+     straight to the CRM; opened normally it shows how to add it. -->
+<meta name="apple-mobile-web-app-title" content="Admissions CRM">
+<meta name="application-name" content="Admissions CRM">
+<meta name="theme-color" content="#1b2338">
+<meta name="robots" content="noindex">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="manifest" href="manifest.webmanifest">
+<script>
+  var CRM_URL = 'https://script.google.com/a/tnrs.care/macros/s/AKfycbwLx3PxPDSa0gOzjTjVHeiJv6M5VmP_6C3tadgtTJdFmxsWQVfYcRZdVeBeZQhruUhnJw/exec';
+  if (/[?&]launch=1\b/.test(location.search)) location.replace(CRM_URL);
+  // iPhone saves the page's CURRENT address to the home screen, so once the
+  // page is shown, mark the address as the launch link.
+  else try { history.replaceState(null, '', '?launch=1'); } catch (e) {}
+</script>
+<style>
+  :root { --bg:#1b2338; --card:#26304c; --text:#f4f6fb; --dim:#b9c2dc; --gold:#f8c336; }
+  * { box-sizing:border-box }
+  body { margin:0; min-height:100vh; background:var(--bg); color:var(--text);
+         font:16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+         display:flex; align-items:center; justify-content:center; padding:24px 16px }
+  main { max-width:420px; width:100%; text-align:center }
+  img { width:120px; height:120px; border-radius:26px }
+  h1 { font-size:24px; margin:16px 0 4px }
+  p { color:var(--dim); margin:0 0 20px }
+  a.open { display:block; background:var(--gold); color:#1b2338; font-weight:700; text-decoration:none;
+           padding:14px; border-radius:12px; margin-bottom:24px }
+  .how { background:var(--card); border-radius:12px; padding:14px 16px; text-align:left; font-size:14px; color:var(--dim); margin-bottom:12px }
+  .how b { color:var(--text) }
+</style>
+</head>
+<body>
+<main>
+  <img src="apple-touch-icon.png" alt="">
+  <h1>Admissions CRM</h1>
+  <p>For True North and Elevate staff — sign in with your tnrs.care account.</p>
+  <a class="open" id="open" href="#">Open the CRM</a>
+  <div class="how"><b>iPhone:</b> in Safari, tap the Share button, then <b>Add to Home Screen</b>.</div>
+  <div class="how"><b>Android:</b> in Chrome, tap ⋮, then <b>Add to Home screen</b> (or <b>Install app</b>).</div>
+</main>
+<script>document.getElementById('open').href = CRM_URL;</script>
+</body>
+</html>
